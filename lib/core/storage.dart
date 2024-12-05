@@ -1,0 +1,1 @@
+// hafızaya kalıcı olarak yazıp/okuma islemlerimiz burda yapicaz.

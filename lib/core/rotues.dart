@@ -1,0 +1,1 @@
+// uygulamada sayfaları ve nagivasyon islemlerini burada tanımlicaz.
