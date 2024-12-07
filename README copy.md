@@ -129,7 +129,7 @@ lib/
 
 ## Ekran Görüntüleri
 
-[Uygulama ekran görüntüleri buraya eklenecek]
+[![alt text][def] ![alt text](<Ekran görüntüsü 2024-12-07 221358.png>) ![alt text](<Ekran görüntüsü 2024-12-07 221423.png>) ![alt text](<Ekran görüntüsü 2024-12-07 221507.png>) ![alt text](<Ekran görüntüsü 2024-12-07 221522.png>) ![alt text](<Ekran görüntüsü 2024-12-07 221538.png>)]
 
   
 
@@ -166,3 +166,5 @@ lib/
 - İstinye Üniversitesi'ne destekleri için teşekkür ederiz
 
 - [Tüm katılımcı ve kullanıcılara katkıları için teşekkür ederiz.]
+
+[def]: <Ekran görüntüsü 2024-12-07 221549.png>

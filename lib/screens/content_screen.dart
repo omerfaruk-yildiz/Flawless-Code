@@ -33,7 +33,7 @@ class ContentScreen extends StatelessWidget {
 
             // Diğer başlıklı kutular
             _buildContentBox(
-              '2. C Programlama Dilinin Özellikleri',
+              'C Programlama Dilinin Özellikleri',
               'Hızlı ve Etkili: Derlenmiş bir dil olduğu için programların çalışma süresi oldukça hızlıdır.',
             ),
             _buildContentBox(
