@@ -1,1 +1,0 @@
-// burda kendimize ozelleştirdiğimiz widgetleri yapacagız.

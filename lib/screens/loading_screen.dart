@@ -3,18 +3,18 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_app/routes/app_router.dart';
+import 'package:flutter_app/core/rotues.dart';
 
 class LoadingScreen extends StatelessWidget {
   const LoadingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-   Timer(const Duration(seconds: 5), () {
-      router.go("/home");
+   Timer(const Duration(seconds: 3), () {
+     router.go("/home");
     });
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.grey[800],
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -28,26 +28,14 @@ class LoadingScreen extends StatelessWidget {
                   width: 150,
                   height: 150,
                   child: Image.asset(
-                    'assets/images/logo.png',
+                    'assets/images/logo..gif',
                     fit: BoxFit.contain,
                   ),
                 ),
 
                 const SizedBox(height: 30),
 
-                // Yükleme ikonu
-                
-                CircularProgressIndicator(),
-                const SizedBox(height: 20),
-
-                // Yükleniyor yazısı
-                const Text(
-                  'Yükleniyor...',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+               
               ],
             ),
           ),

@@ -1,4 +1,3 @@
-
 # Flutter Projesi
 
   
@@ -9,29 +8,31 @@
 
 ## Proje Hakkında
 
-[Projenin kısa tanımı ve amacı buraya yazılacak]
+[Hatasız Kod, kodlama sürecinde hataların belirlenmesine ve düzeltilmesine yardımcı olan, aynı zamanda kullanıcıların kodlama becerilerini geliştirmeyi amaçlayan bir eğitim uygulamasıdır. Uygulama, interaktif örnekler, testler ve öneriler sunarak kullanıcıları destekler.]
 
   
 
 ## Ekibimiz
 
--  **Danışman:**  
+-  *Danışman:*  
 [https://github.com/keyvanarasteh](Keyvan Arasteh)
 
 
--  **Takım Üyeleri:**
+-  *Takım Üyeleri:*
 
-- X [GitHub](GitHub linki)
-
+-[omerfaruk-yildiz](https://github.com/omerfaruk-yildiz)
+-[BatuRoyale05](https://github.com/BatuRoyale05)
+-[enes986](https://github.com/enes986)
   
 
 ## Özellikler
 
-- [Ana özellik 1]
+- [Hata Analizi: Kullanıcıların yüklediği veya yazdığı kodları analiz ederek hataları tespit eder.]
 
-- [Ana özellik 2]
+- [Eğitici Modüller: Hataların nedenlerini ve çözüm yollarını açıklayan modüller içerir.]
 
-- [Ana özellik 3]
+- [Test ve Öneriler: Kullanıcıya interaktif testler sunarak öğrenme sürecini hızlandırır.]
+
 
   
 
@@ -41,7 +42,9 @@
 
 - Dart
 
-- [Diğer teknolojiler]
+- Firebase (veri depolama ve kimlik doğrulama için)
+
+-REST API (veri alışverişi için)
 
   
 
@@ -51,11 +54,14 @@
 
 ### Gereksinimler
 
-- Flutter SDK (sürüm X.X.X)
+- Flutter SDK (sürüm 3.10.6)
 
-- Dart SDK (sürüm X.X.X)
+- Dart SDK (sürüm 3.0.3)
 
-- [Diğer gerekli yazılımlar]
+- Visual Studio Code veya Android Studio
+
+- Bir Android veya iOS cihaz ya da emülatör
+
 
   
 
@@ -63,47 +69,47 @@
 
 1. Projeyi bilgisayarınıza indirin:
 
-```bash
+bash
 
-git  clone [proje-adresi]
+git  clone [https://github.com/omerfaruk-yildiz/Flawless-Code.git]
 
-```
+
 
   
 
 2. Proje klasörüne gidin:
 
-```bash
+bash
 
-cd [proje-adı]
+cd [Flawless-Code]
 
-```
+
 
   
 
 3. Gerekli paketleri yükleyin:
 
-```bash
+bash
 
 flutter  pub  get
 
-```
+
 
   
 
 4. Uygulamayı başlatın:
 
-```bash
+bash
 
 flutter  run
 
-```
+
 
   
 
 ## Proje Yapısı
 
-```
+
 
 lib/
 
@@ -117,7 +123,7 @@ lib/
 
 └── yardımcılar/ # Yardımcı fonksiyonlar
 
-```
+
 
   
 
@@ -131,11 +137,11 @@ lib/
 
 1. Projeyi forklayın
 
-2. Yeni bir dal oluşturun (`git checkout -b ozellik/YeniOzellik`)
+2. Yeni bir dal oluşturun (git checkout -b ozellik/YeniOzellik)
 
-3. Değişikliklerinizi kaydedin (`git commit -m 'Yeni özellik eklendi'`)
+3. Değişikliklerinizi kaydedin (git commit -m 'Yeni özellik eklendi')
 
-4. Dalınıza gönderin (`git push origin ozellik/YeniOzellik`)
+4. Dalınıza gönderin (git push origin ozellik/YeniOzellik)
 
 5. Pull Request oluşturun
 
@@ -143,15 +149,15 @@ lib/
 
 ## Lisans
 
-[Lisans türü] kapsamında lisanslanmıştır. Daha fazla bilgi için `LICENSE` dosyasını inceleyebilirsiniz.
+[Lisans türü] kapsamında lisanslanmıştır. Daha fazla bilgi için LICENSE dosyasını inceleyebilirsiniz.
 
   
 
 ## İletişim
 
-- Proje Bağlantısı: [GitHub repository linki]
+- Proje Bağlantısı: [https://github.com/omerfaruk-yildiz/Flawless-Code.git]
 
-- İstinye Üniversitesi: [https://www.istinye.edu.tr/](https://www.istinye.edu.tr/)
+- İstinye Üniversitesi: [https://www.istinye.edu.tr/]
 
   
 
@@ -159,9 +165,4 @@ lib/
 
 - İstinye Üniversitesi'ne destekleri için teşekkür ederiz
 
-- [Diğer teşekkürler]
-
-  
-  
-
-Bunlari degistirmeniz gerekmektedir ;-)
+- [Tüm katılımcı ve kullanıcılara katkıları için teşekkür ederiz.]
