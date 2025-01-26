@@ -59,7 +59,7 @@ class LessonScreen extends StatelessWidget {
         } else {
           _showSnackBar(context, title);
         }
-      },
+      },   
       borderRadius: BorderRadius.circular(15),
       child: Container(
         decoration: BoxDecoration(

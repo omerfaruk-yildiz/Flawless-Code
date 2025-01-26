@@ -28,7 +28,7 @@ class LoadingScreen extends StatelessWidget {
                   width: 150,
                   height: 150,
                   child: Image.asset(
-                    'assets/images/logo..gif',
+                    'assets/images/logo.gif',
                     fit: BoxFit.contain,
                   ),
                 ),
