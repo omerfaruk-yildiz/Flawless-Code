@@ -1,10 +1,10 @@
 // uygulamada sayfalari ve navigasyon islemlerini burada tanimlicaz
 import 'package:flutter_app/screens/login_screen.dart';
+import 'package:flutter_app/screens/pastlessons_screen.dart';
 import 'package:go_router/go_router.dart';
 import '../screens/assistant_screen.dart';
 import '../screens/loading_screen.dart';
 import '../screens/home_screen.dart';
-import '../screens/loading_screen.dart';
 import '../screens/profile_screen.dart';
 import '../screens/register_screen.dart';
 import '../screens/search_screen.dart';
@@ -61,6 +61,13 @@ final router = GoRouter(
       pageBuilder: (context, state) => NoTransitionPage<void>(
         key: state.pageKey,
         child: const RegisterScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '/pastlessons',
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const PastlessonsScreen(),
       ),
     ),
   ],

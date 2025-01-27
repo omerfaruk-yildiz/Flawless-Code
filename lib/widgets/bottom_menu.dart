@@ -40,7 +40,7 @@ class BottomMenu extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              context.go("/history");
+              context.go("/pastlessons");
             },
             icon: Icon(
               Icons.history,
