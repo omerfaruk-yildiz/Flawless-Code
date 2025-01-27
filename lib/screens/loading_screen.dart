@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_app/core/rotues.dart';
+import 'package:flutter_app/core/routes.dart';
 
 class LoadingScreen extends StatelessWidget {
   const LoadingScreen({super.key});

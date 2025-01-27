@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'core/rotues.dart'; // Yönlendirme rotaları
+import 'core/routes.dart'; // Yönlendirme rotaları
 import 'core/themes.dart'; // Tema yönetimi
 
 void main() {

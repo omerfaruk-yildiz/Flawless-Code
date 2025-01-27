@@ -32,7 +32,7 @@ class BottomMenu extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              context.go("/voice");
+              context.go("/assistant");
             },
             icon: Icon(
               Icons.android,
