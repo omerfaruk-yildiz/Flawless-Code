@@ -1,23 +1,44 @@
-
+// uygulamada sayfalari ve navigasyon islemlerini burada tanimlicaz
 import 'package:go_router/go_router.dart';
+import '../screens/loading_screen.dart';
 import '../screens/home_screen.dart';
-import '../screens/lesson_screen.dart';
+import '../screens/loading_screen.dart';
 import '../screens/profile_screen.dart';
+import '../screens/search_screen.dart';
 
-final GoRouter router = GoRouter(
+// Router yapılandırması
+final router = GoRouter(
   initialLocation: '/', // Başlangıç rotası
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => const HomeScreen(), // Ana ekran
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const LoadingScreen(),
+      ),
     ),
     GoRoute(
-      path: '/lesson',
-      builder: (context, state) => const LessonScreen(), // Ders ekranı
+      path: '/home',
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const HomeScreen(),
+      ),
     ),
     GoRoute(
       path: '/profile',
-      builder: (context, state) => const ProfileScreen(), // Profil ekranı
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const ProfileScreen(),
+      ),
     ),
+   
+    GoRoute(
+      path: '/search',
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const SearchScreen(),
+      ),
+    ),
+    
   ],
 );
