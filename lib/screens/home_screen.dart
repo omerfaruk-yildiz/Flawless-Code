@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/widgets/bottom_menu.dart';
+import 'package:provider/provider.dart'; // Tema yönetimi için gerekli
+
+import '../core/themes.dart'; // Tema sağlayıcısı
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -32,24 +35,28 @@ class HomeScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: const Color(0xFF1C1C1C),
+      backgroundColor: Theme.of(context).colorScheme.background,
       // AppBar
       appBar: AppBar(
-        backgroundColor: Colors.grey[800],
+        backgroundColor: Theme.of(context).colorScheme.primary,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           '< Flawless Code >',
-          style: TextStyle(
-            fontSize: 24, // Yazı boyutu
-            fontWeight: FontWeight.bold, // Kalınlaştırma
-            color: Colors.white, // Yazı rengi
-          ),
+          style: Theme.of(context).textTheme.headlineMedium,
         ),
+        actions: [
+          IconButton(
+            icon: Icon(CupertinoIcons.moon_stars, color: Theme.of(context).colorScheme.onPrimary),
+            onPressed: () {
+              context.read<ThemeProvider>().toggleTheme();
+            },
+          ),
+        ],
       ),
 
       // Ana içerik
       body: Padding(
-        padding: const EdgeInsets.all(16.0), // Kenarlardan boşluk
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -58,27 +65,25 @@ class HomeScreen extends StatelessWidget {
               width: double.infinity,
               padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
-                color: Colors.grey[800], // Kutunun arka plan rengi
-                borderRadius: BorderRadius.circular(12.0), // Kenar ovalleştirme
+                color: Theme.of(context).colorScheme.surface,
+                borderRadius: BorderRadius.circular(12.0),
               ),
-              child: const Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Hoş Geldin ÖmerFarukYıldız 👋',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).colorScheme.onSurface,
+                        ),
                   ),
-                  SizedBox(height: 8.0),
+                  const SizedBox(height: 8.0),
                   Text(
                     'Kodlama alanında yeni başarılar elde etmeye hazır mısınız?',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white70,
-                    ),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+                        ),
                   ),
                 ],
               ),
@@ -86,24 +91,27 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 16.0),
 
             // Kayan Bloglar
-            const Text(
+            Text(
               'Bilgi Akışı',
-              style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                    color: Theme.of(context).colorScheme.onBackground,
+                    fontWeight: FontWeight.bold,
+                  ),
             ),
             const SizedBox(height: 8.0),
             SizedBox(
-              height: 150, // Kartların yüksekliği
+              height: 150,
               child: ListView.builder(
-                scrollDirection: Axis.horizontal, // Yatay kaydırma
-                itemCount: blogList.length, // Blog sayısı
-                physics: const BouncingScrollPhysics(), // Hareketi sağlıyor
+                scrollDirection: Axis.horizontal,
+                itemCount: blogList.length,
+                physics: const BouncingScrollPhysics(),
                 itemBuilder: (context, index) {
-                  final blog = blogList[index]; // Dinamik içerik
+                  final blog = blogList[index];
                   return Container(
-                    width: 200, // Kartların genişliği
+                    width: 200,
                     margin: const EdgeInsets.only(right: 16.0),
                     decoration: BoxDecoration(
-                      color: Colors.grey[800],
+                      color: Theme.of(context).colorScheme.surface,
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                     child: Padding(
@@ -113,16 +121,17 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Text(
                             blog["title"] ?? "Başlık Yok",
-                            style: const TextStyle(
-                              fontSize: 16,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.onSurface,
+                                ),
                           ),
                           const SizedBox(height: 8),
                           Text(
                             blog["description"] ?? "Açıklama Yok",
-                            style: const TextStyle(color: Colors.white70, fontSize: 14),
+                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                  color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+                                ),
                           ),
                         ],
                       ),
@@ -131,16 +140,16 @@ class HomeScreen extends StatelessWidget {
                 },
               ),
             ),
-
             const SizedBox(height: 16.0),
 
             // Diğer içerik
             Expanded(
-              child: Container(
-                padding: const EdgeInsets.all(16),
-                child: const Text(
-                  '',
-                  style: TextStyle(color: Colors.white),
+              child: Center(
+                child: Text(
+                  'Flawless Code ile geleceği yazın!',
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        color: Theme.of(context).colorScheme.onBackground,
+                      ),
                 ),
               ),
             ),
@@ -148,7 +157,8 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
 
-       bottomNavigationBar: BottomMenu(),
+      // Alt Menü
+      bottomNavigationBar: BottomMenu(),
     );
   }
 }

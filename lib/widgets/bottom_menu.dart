@@ -7,10 +7,8 @@ class BottomMenu extends StatelessWidget {
     super.key,
   });
 
-   @override
+  @override
   Widget build(BuildContext context) {
-    String currentRoute = ModalRoute.of(context)?.settings.name ?? "/";
-
     return Container(
       height: 70,
       child: Row(
@@ -22,16 +20,30 @@ class BottomMenu extends StatelessWidget {
             },
             icon: Icon(
               CupertinoIcons.home,
-              color: currentRoute == "/home" ? Colors.blue : Colors.white,
             ),
           ),
           IconButton(
             onPressed: () {
-              context.go("/lesson");
+              context.go("/search");
             },
             icon: Icon(
-              CupertinoIcons.desktopcomputer,
-              color: currentRoute == "/lesson" ? Colors.blue : Colors.white,
+              CupertinoIcons.search,
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              context.go("/voice");
+            },
+            icon: Icon(
+              Icons.android,
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              context.go("/history");
+            },
+            icon: Icon(
+              Icons.history,
             ),
           ),
           IconButton(
@@ -40,7 +52,6 @@ class BottomMenu extends StatelessWidget {
             },
             icon: Icon(
               CupertinoIcons.person,
-              color: currentRoute == "/profile" ? Colors.blue : Colors.white,
             ),
           ),
         ],
