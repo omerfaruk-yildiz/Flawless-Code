@@ -28,6 +28,7 @@ class ProfileScreen extends StatelessWidget {
         padding: EdgeInsets.all(1),
         children: [
           Card(
+            color:Theme.of(context).colorScheme.primary,
             child: Padding(
               padding: EdgeInsets.all(1),
               child: Column(
@@ -54,6 +55,7 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           Card(
+            color:Theme.of(context).colorScheme.primary,
             child: Padding(
               padding: EdgeInsets.all(1),
               child: Column(
@@ -80,6 +82,7 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           Card(
+            color:Theme.of(context).colorScheme.primary,
             child: Padding(
               padding: EdgeInsets.all(1),
               child: Column(
