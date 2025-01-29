@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'core/routes.dart'; // Yönlendirme rotaları
-import 'core/themes.dart'; // Tema yönetimi
+import 'core/routes.dart'; 
+import 'core/themes.dart'; 
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized(); // Flutter widget'larını başlat
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     ChangeNotifierProvider(
       create: (_) => ThemeProvider(),
@@ -22,11 +22,11 @@ class MyApp extends StatelessWidget {
       builder: (context, themeProvider, child) {
         return MaterialApp.router(
           title: 'Flutter App',
-          themeMode: themeProvider.isDark ? ThemeMode.dark : ThemeMode.light, // Tema modu
-          theme: lightTheme, // Açık tema
-          darkTheme: darkTheme, // Koyu tema
-          routerConfig: router, // GoRouter yapılandırması
-          debugShowCheckedModeBanner: false, // Debug bandını kaldır
+          themeMode: themeProvider.isDark ? ThemeMode.dark : ThemeMode.light,
+          theme: lightTheme,
+          darkTheme: darkTheme, 
+          routerConfig: router, 
+          debugShowCheckedModeBanner: false, 
         );
       },
     );
