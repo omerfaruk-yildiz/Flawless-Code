@@ -6,15 +6,15 @@ class ContentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background, // Arka plan temaya uygun
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary, // Tema rengine uygun AppBar
+        backgroundColor: Theme.of(context).colorScheme.primary,
         centerTitle: true,
         title: Text(
           '< Flawless Code >',
           style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                 fontWeight: FontWeight.bold,
-                color: Theme.of(context).colorScheme.onPrimary, // Tema zıt rengi
+                color: Theme.of(context).colorScheme.onPrimary,
               ),
         ),
       ),
@@ -22,16 +22,12 @@ class ContentScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 16), // Üst boşluk
-
-            // C Nedir? başlıklı kutu
+            const SizedBox(height: 16),
             _buildContentBox(
               context,
               'C Nedir?',
               'C, 1972 yılında Dennis Ritchie tarafından AT&T Bell Laboratuvarlarında geliştirilmiş genel amaçlı bir programlama dilidir. Sisteme yakın bir dil olması nedeniyle işletim sistemleri, gömülü sistemler, derleyiciler ve performans odaklı uygulamalar için kullanılır. C, birçok modern programlama dilinin (C++, C#, Java, Python) temelini oluşturur.',
             ),
-
-            // Diğer başlıklı kutular
             _buildContentBox(
               context,
               'C Programlama Dilinin Özellikleri',
@@ -77,25 +73,24 @@ class ContentScreen extends StatelessWidget {
               '',
               'Bilimsel ve Matematiksel Hesaplamalar: Hız gerektiren uygulamalarda kullanılır.',
             ),
-            const SizedBox(height: 16), // Alt boşluk
+            const SizedBox(height: 16),
           ],
         ),
       ),
     );
   }
 
-  // İçerik kutusunu oluşturan metod (Tema desteği eklendi)
   Widget _buildContentBox(BuildContext context, String title, String subtitle) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       padding: const EdgeInsets.all(16.0),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Theme.of(context).cardColor, // Tema uyumlu kutu rengi
-        borderRadius: BorderRadius.circular(12.0), // Köşeleri oval yap
+        color: Theme.of(context).cardColor,
+        borderRadius: BorderRadius.circular(12.0),
         boxShadow: [
           BoxShadow(
-            color: Theme.of(context).shadowColor.withOpacity(0.2), // Hafif gölge efekti
+            color: Theme.of(context).shadowColor.withOpacity(0.2),
             blurRadius: 5,
             offset: const Offset(0, 3),
           ),
@@ -104,7 +99,7 @@ class ContentScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (title.isNotEmpty) // Eğer başlık boş değilse göster
+          if (title.isNotEmpty)
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -112,7 +107,7 @@ class ContentScreen extends StatelessWidget {
                   title,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.onSurface, // Tema zıt rengi
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                 ),
                 const SizedBox(height: 8.0),
@@ -121,7 +116,7 @@ class ContentScreen extends StatelessWidget {
           Text(
             subtitle,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurfaceVariant, // Açık/koyu tema uyumlu
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
           ),
         ],

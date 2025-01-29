@@ -31,8 +31,7 @@ class _PastlessonsScreenState extends State<PastlessonsScreen> {
                 padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 child: Row(
                   children: [
-                    Text('Sırala:',
-                        style: Theme.of(context).textTheme.titleMedium),
+                    Text('Sırala:', style: Theme.of(context).textTheme.titleMedium),
                     SizedBox(width: 8),
                     ChoiceChip(
                       label: Text('En Yeni'),
@@ -51,66 +50,63 @@ class _PastlessonsScreenState extends State<PastlessonsScreen> {
             ),
           ),
           Expanded(
-  child: Padding(
-    padding: EdgeInsets.symmetric(horizontal: 8),
-    child: GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2, // İki sütunlu grid
-        crossAxisSpacing: 5,
-        mainAxisSpacing: 5,
-        childAspectRatio: 1.60,
-      ),
-      itemCount: 10,
-      itemBuilder: (context, index) {
-        return InkWell(
-          onTap: () => context.push("/content"),
-          child: Card(
-            clipBehavior: Clip.antiAlias,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AspectRatio(
-                  aspectRatio: 25 / 9,
-                  child: Container(
-                    color: Theme.of(context).colorScheme.secondaryContainer,
-                    child: Icon(
-                      Icons.code, // İkon tipi
-                      size: 48, // İkon boyutu
-                      color: Theme.of(context)
-                          .colorScheme
-                          .onSecondaryContainer, // Renk
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8),
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 5,
+                  mainAxisSpacing: 5,
+                  childAspectRatio: 1.60,
+                ),
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () => context.push("/content"),
+                    child: Card(
+                      clipBehavior: Clip.antiAlias,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          AspectRatio(
+                            aspectRatio: 25 / 9,
+                            child: Container(
+                              color: Theme.of(context).colorScheme.secondaryContainer,
+                              child: Icon(
+                                Icons.code,
+                                size: 48,
+                                color: Theme.of(context).colorScheme.onSecondaryContainer,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(8),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "C ${index + 1}",
+                                  style: Theme.of(context).textTheme.titleMedium,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                Text(
+                                  "C Eğitimine başla",
+                                  style: Theme.of(context).textTheme.bodySmall,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "C ${index + 1}",
-                        style: Theme.of(context).textTheme.titleMedium,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      Text(
-                        "C Eğitimine başla",
-                        style: Theme.of(context).textTheme.bodySmall,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+                  );
+                },
+              ),
             ),
           ),
-        );
-      },
-    ),
-  ),
-),
-
         ],
       ),
       bottomNavigationBar: BottomMenu(),
@@ -135,10 +131,7 @@ class _PastlessonsScreenState extends State<PastlessonsScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Zaman Aralığı',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
+            Text('Zaman Aralığı', style: Theme.of(context).textTheme.titleMedium),
             SizedBox(height: 8),
             Row(
               children: [
@@ -166,10 +159,7 @@ class _PastlessonsScreenState extends State<PastlessonsScreen> {
               ],
             ),
             SizedBox(height: 16),
-            Text(
-              'Kategoriler',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
+            Text('Kategoriler', style: Theme.of(context).textTheme.titleMedium),
             SizedBox(height: 8),
             Wrap(
               spacing: 8,
@@ -197,10 +187,7 @@ class _PastlessonsScreenState extends State<PastlessonsScreen> {
               ],
             ),
             SizedBox(height: 16),
-            Text(
-              'Arama',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
+            Text('Arama', style: Theme.of(context).textTheme.titleMedium),
             SizedBox(height: 8),
             TextField(
               decoration: InputDecoration(

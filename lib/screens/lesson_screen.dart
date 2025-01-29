@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-
 import '../widgets/bottom_menu.dart';
 
 class LessonScreen extends StatelessWidget {
   const LessonScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: colors["primary"],
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -67,62 +66,60 @@ class LessonScreen extends StatelessWidget {
           SliverPadding(
             padding: EdgeInsets.all(16),
             sliver: SliverGrid(
-  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    crossAxisCount: 2,
-    mainAxisSpacing: 5,
-    crossAxisSpacing:5,
-    childAspectRatio: 1.60,
-  ),
-  delegate: SliverChildBuilderDelegate(
-    (context, index) {
-      return InkWell(
-         onTap: () => context.push("/content"),
-        child: Card(
-          clipBehavior: Clip.antiAlias,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AspectRatio(
-  aspectRatio: 25 / 9,
-  child: Container(
-    color: Theme.of(context).colorScheme.secondaryContainer,
-    child: Icon(
-      Icons.code, // İkon tipi
-      size: 48, // İkon boyutu
-      color: Theme.of(context).colorScheme.onSecondaryContainer, // Renk
-    ),
-  ),
-),
-
-              Padding(
-                padding: EdgeInsets.all(8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "C ${index + 1}",
-                      style: Theme.of(context).textTheme.titleMedium,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    Text(
-                      "C Eğitimine başla",
-                      style: Theme.of(context).textTheme.bodySmall,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ],
-                ),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 5,
+                crossAxisSpacing: 5,
+                childAspectRatio: 1.60,
               ),
-            ],
-          ),
-        ),
-      );
-    },
-    childCount: 10,
-  ),
-),
-
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  return InkWell(
+                    onTap: () => context.push("/content"),
+                    child: Card(
+                      clipBehavior: Clip.antiAlias,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          AspectRatio(
+                            aspectRatio: 25 / 9,
+                            child: Container(
+                              color: Theme.of(context).colorScheme.secondaryContainer,
+                              child: Icon(
+                                Icons.code,
+                                size: 48,
+                                color: Theme.of(context).colorScheme.onSecondaryContainer,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(8),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "C ${index + 1}",
+                                  style: Theme.of(context).textTheme.titleMedium,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                Text(
+                                  "C Eğitimine başla",
+                                  style: Theme.of(context).textTheme.bodySmall,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+                childCount: 10,
+              ),
+            ),
           ),
         ],
       ),

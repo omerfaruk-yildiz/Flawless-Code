@@ -1,5 +1,3 @@
-// ana ekran
-
 import 'package:dotlottie_loader/dotlottie_loader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,10 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
-
 import '../core/themes.dart';
 import '../widgets/bottom_menu.dart';
-import '../widgets/suggested_action_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -78,141 +74,126 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      
       body: SafeArea(
         child: Column(
           children: [
             Card(
-  color: Theme.of(context).colorScheme.primary, // Card arka plan rengi
-  shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(16), // Köşe yuvarlaklığı
-  ),
-  elevation: 4, // Gölgelendirme
-  child: Padding(
-    padding: EdgeInsets.all(16),
-    child: Row(
-      children: [
-        CircleAvatar(
-          radius: 20,
-          backgroundColor: Theme.of(context).colorScheme.primary,
-          child: Icon(
-            Icons.home,
-            size: 32,
-            color: Theme.of(context).colorScheme.onPrimary,
-          ),
-        ),
-        SizedBox(width: 16),
-        Expanded(
-          child: Text(
-            "Hoş Geldiniz Keyvan Arasteh 👋",
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface, // Yazı rengi
+              color: Theme.of(context).colorScheme.primary,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              elevation: 4,
+              child: Padding(
+                padding: EdgeInsets.all(16),
+                child: Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      child: Icon(
+                        Icons.home,
+                        size: 32,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
+                    ),
+                    SizedBox(width: 16),
+                    Expanded(
+                      child: Text(
+                        "Hoş Geldiniz Keyvan Arasteh 👋",
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                              color: Theme.of(context).colorScheme.onSurface,
+                            ),
+                      ),
+                    ),
+                  ],
                 ),
-          ),
-        ),
-      ],
-    ),
-  ),
-),
-
-                      Card(
-  color: Theme.of(context).colorScheme.primary, // Arka plan rengi
-  shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(16), // Köşe yuvarlaklığı
-  ),
-  elevation: 4, // Kart gölgelenmesi
-  child: Padding(
-    padding: EdgeInsets.all(16),
-    child: Row(
-      children: [
-        CircleAvatar(
-          radius: 20,
-          backgroundColor: Theme.of(context).colorScheme.primary,
-          child: Icon(
-            Icons.code,
-            size: 32,
-            color: Theme.of(context).colorScheme.onPrimary,
-          ),
-        ),
-        SizedBox(width: 10),
-        Expanded(
-          child: Text(
-            "Kodlama alanında yeni başarılar elde etmeye hazır mısınız?",
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontSize: 14, // Yazı boyutunu küçültmek için
-                  color: Theme.of(context).colorScheme.onSurface, // Yazı rengi
+              ),
+            ),
+            Card(
+              color: Theme.of(context).colorScheme.primary,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              elevation: 4,
+              child: Padding(
+                padding: EdgeInsets.all(16),
+                child: Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      child: Icon(
+                        Icons.code,
+                        size: 32,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        "Kodlama alanında yeni başarılar elde etmeye hazır mısınız?",
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                              fontSize: 14,
+                              color: Theme.of(context).colorScheme.onSurface,
+                            ),
+                      ),
+                    ),
+                  ],
                 ),
-          ),
-        ),
-      ],
-    ),
-  ),
-),
-
-           Expanded(
-  flex: 3,
-  child: Container(
-    decoration: BoxDecoration(
-      color: Theme.of(context).colorScheme.surfaceVariant,
-      borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
-    ),
-    child: ListView(
-      padding: EdgeInsets.all(24),
-      children: [
-        SizedBox(height: 16),
-        Card(
-          color:Theme.of(context).colorScheme.primary, // İlk kutucuk için farklı renk
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: ListTile(
-            leading: CircleAvatar(
-              radius: 20,
-              backgroundColor: Theme.of(context).colorScheme.primary,
-              child: Icon(Icons.laptop,
-                  size: 24,
-                  color: Theme.of(context).colorScheme.onPrimary),
+              ),
             ),
-            title: Text(
-              "Eğitimler",
-              style: Theme.of(context).textTheme.titleMedium,
+            Expanded(
+              flex: 3,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.surfaceVariant,
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
+                ),
+                child: ListView(
+                  padding: EdgeInsets.all(24),
+                  children: [
+                    SizedBox(height: 16),
+                    Card(
+                      color: Theme.of(context).colorScheme.primary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: ListTile(
+                        leading: CircleAvatar(
+                          radius: 20,
+                          backgroundColor: Theme.of(context).colorScheme.primary,
+                          child: Icon(Icons.laptop,
+                              size: 24,
+                              color: Theme.of(context).colorScheme.onPrimary),
+                        ),
+                        title: Text("Eğitimler", style: Theme.of(context).textTheme.titleMedium),
+                        subtitle: Text("Bütün eğitimleri görüntüleyin", style: Theme.of(context).textTheme.bodySmall),
+                        onTap: () => context.push("/lesson"),
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    Card(
+                      color: Theme.of(context).colorScheme.primary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: ListTile(
+                        leading: CircleAvatar(
+                          radius: 20,
+                          backgroundColor: Theme.of(context).colorScheme.primary,
+                          child: Icon(Icons.settings,
+                              size: 24,
+                              color: Theme.of(context).colorScheme.onPrimary),
+                        ),
+                        title: Text("Ayarlar", style: Theme.of(context).textTheme.titleMedium),
+                        subtitle: Text("Uygulama ayarlarını özelleştirin", style: Theme.of(context).textTheme.bodySmall),
+                        onTap: () => context.push("/settings"),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            subtitle: Text(
-              "Bütün eğitimleri görüntüleyin",
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
-            onTap: () => context.push("/lesson"),
-          ),
-        ),
-        SizedBox(height: 16),
-        Card(
-          color:Theme.of(context).colorScheme.primary, // İkinci kutucuk için farklı renk
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: ListTile(
-            leading: CircleAvatar(
-              radius: 20,
-              backgroundColor: Theme.of(context).colorScheme.primary,
-              child: Icon(Icons.settings,
-                  size: 24,
-                  color: Theme.of(context).colorScheme.onPrimary),
-            ),
-            title: Text(
-              "Ayarlar",
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            subtitle: Text(
-              "Uygulama ayarlarını özelleştirin",
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
-            onTap: () => context.push("/settings"),
-          ),
-        ),
-      ],
-    ),
-  ),
-),
             Expanded(
               flex: 2,
               child: Container(
@@ -223,9 +204,7 @@ class HomeScreen extends StatelessWidget {
                     "assets/motions/q2.lottie",
                     frameBuilder: (context, dotlottie) {
                       if (dotlottie != null) {
-                        return Lottie.memory(
-                          dotlottie.animations.values.single,
-                        );
+                        return Lottie.memory(dotlottie.animations.values.single);
                       }
                       return const SizedBox();
                     },
@@ -233,7 +212,6 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-
           ],
         ),
       ),

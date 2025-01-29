@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-
-
 import '../core/themes.dart';
 import '../widgets/bottom_menu.dart';
 
@@ -28,18 +26,16 @@ class ProfileScreen extends StatelessWidget {
         padding: EdgeInsets.all(1),
         children: [
           Card(
-            color:Theme.of(context).colorScheme.primary,
+            color: Theme.of(context).colorScheme.primary,
             child: Padding(
               padding: EdgeInsets.all(1),
               child: Column(
                 children: [
                   CircleAvatar(
-                radius: 30,
-                backgroundImage: AssetImage('assets/images/181980218.jpg'),
-              ),
-              const SizedBox(height: 1),
-
-                  SizedBox(height: 1),
+                    radius: 30,
+                    backgroundImage: AssetImage('assets/images/181980218.jpg'),
+                  ),
+                  const SizedBox(height: 1),
                   ListTile(
                     leading: Icon(Icons.person),
                     title: Text("Ömer Faruk YILDIZ"),
@@ -55,18 +51,16 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           Card(
-            color:Theme.of(context).colorScheme.primary,
+            color: Theme.of(context).colorScheme.primary,
             child: Padding(
               padding: EdgeInsets.all(1),
               child: Column(
                 children: [
                   CircleAvatar(
-                radius: 30,
-                backgroundImage: AssetImage('assets/images/150136006.jpg'),
-              ),
-              const SizedBox(height: 1),
-
-                  SizedBox(height: 1),
+                    radius: 30,
+                    backgroundImage: AssetImage('assets/images/150136006.jpg'),
+                  ),
+                  const SizedBox(height: 1),
                   ListTile(
                     leading: Icon(Icons.person),
                     title: Text("Enes ÖZGENÇ"),
@@ -82,18 +76,16 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           Card(
-            color:Theme.of(context).colorScheme.primary,
+            color: Theme.of(context).colorScheme.primary,
             child: Padding(
               padding: EdgeInsets.all(1),
               child: Column(
                 children: [
                   CircleAvatar(
-                radius: 30,
-                backgroundImage: AssetImage('assets/images/48393183.jpg'),
-              ),
-              const SizedBox(height: 1),
-
-                  SizedBox(height: 1),
+                    radius: 30,
+                    backgroundImage: AssetImage('assets/images/48393183.jpg'),
+                  ),
+                  const SizedBox(height: 1),
                   ListTile(
                     leading: Icon(Icons.person),
                     title: Text("Batuhan Demir"),

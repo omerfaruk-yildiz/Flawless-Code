@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import "package:google_fonts/google_fonts.dart";
 
-// theme_provider.dart
 class ThemeProvider with ChangeNotifier {
-  bool _isDark = true; // Varsayılan tema
+  bool _isDark = true;
   bool get isDark => _isDark;
 
   void toggleTheme() {
     _isDark = !_isDark;
-    notifyListeners(); // Tema değişikliğini dinleyicilere bildir
+    notifyListeners();
   }
 }
-
 
 const darkColors = {
   "primary": Color(0xFF1C1C1C),
@@ -26,20 +24,18 @@ const darkColors = {
   "onError": Colors.white,
 };
 
-
 const lightColors = {
-  "primary": Color(0xFFB0BEC5), // Hafif açık gri
-  "onPrimary": Color(0xFF212121), // Koyu gri
-  "secondary": Color(0xFFBBDEFB), // Açık mavi
-  "onSecondary": Color(0xFF0D47A1), // Mavi ton
-  "background": Color(0xFFFFFFFF), // Beyaz
-  "onBackground": Color(0xFF000000), // Siyah
-  "surface": Color(0xFFF1F1F1), // Hafif açık gri
-  "onSurface": Color(0xFF000000), // Siyah
-  "error": Color(0xFFD32F2F), // Kırmızı
-  "onError": Color(0xFFFFFFFF), // Beyaz
+  "primary": Color(0xFFB0BEC5),
+  "onPrimary": Color(0xFF212121),
+  "secondary": Color(0xFFBBDEFB),
+  "onSecondary": Color(0xFF0D47A1),
+  "background": Color(0xFFFFFFFF),
+  "onBackground": Color(0xFF000000),
+  "surface": Color(0xFFF1F1F1),
+  "onSurface": Color(0xFF000000),
+  "error": Color(0xFFD32F2F),
+  "onError": Color(0xFFFFFFFF),
 };
-
 
 final darkTheme = ThemeData(
   brightness: Brightness.dark,
@@ -60,7 +56,6 @@ final darkTheme = ThemeData(
     displayColor: darkColors["onSurface"],
   ),
 );
-
 
 final lightTheme = ThemeData(
   brightness: Brightness.light,

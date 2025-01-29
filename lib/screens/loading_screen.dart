@@ -9,20 +9,18 @@ class LoadingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   Timer(const Duration(seconds: 3), () {
-     router.go("/home");
+    Timer(const Duration(seconds: 3), () {
+      router.go("/home");
     });
     return Scaffold(
       backgroundColor: Colors.grey[800],
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Logo ve yükleme göstergesi bölümü
           SizedBox(
             width: double.infinity,
             child: Column(
               children: [
-                // Logo bölümü
                 SizedBox(
                   width: 150,
                   height: 150,
@@ -31,10 +29,7 @@ class LoadingScreen extends StatelessWidget {
                     fit: BoxFit.contain,
                   ),
                 ),
-
                 const SizedBox(height: 30),
-
-               
               ],
             ),
           ),
