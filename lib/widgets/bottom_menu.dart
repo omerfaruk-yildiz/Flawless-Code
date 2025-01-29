@@ -24,10 +24,10 @@ class BottomMenu extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              context.go("/search");
+              context.go("/lesson");
             },
             icon: Icon(
-              CupertinoIcons.search,
+              CupertinoIcons.device_laptop,
             ),
           ),
           IconButton(

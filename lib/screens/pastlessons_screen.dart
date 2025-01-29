@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../widgets/bottom_menu.dart';
 
 class PastlessonsScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class _PastlessonsScreenState extends State<PastlessonsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Geçmiş'),
+        title: Text('Geçmiş Eğitimler'),
         actions: [
           IconButton(
             icon: Icon(Icons.filter_list),
@@ -40,7 +41,7 @@ class _PastlessonsScreenState extends State<PastlessonsScreen> {
                     ),
                     SizedBox(width: 8),
                     ChoiceChip(
-                      label: Text('Fiyat'),
+                      label: Text('En Eski'),
                       selected: false,
                       onSelected: (_) {},
                     ),
@@ -50,81 +51,66 @@ class _PastlessonsScreenState extends State<PastlessonsScreen> {
             ),
           ),
           Expanded(
-            child: GridView.builder(
-              padding: EdgeInsets.all(8),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 0.75,
-                mainAxisSpacing: 8,
-                crossAxisSpacing: 8,
-              ),
-              itemCount: 10,
-              itemBuilder: (context, index) => Card(
-                clipBehavior: Clip.antiAlias,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Stack(
-                      children: [
-                        AspectRatio(
-                          aspectRatio: 1,
-                          child: Container(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .surfaceContainerHighest,
-                            child: Image.asset(
-                              "assets/images/urun1.webp",
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          top: 8,
-                          right: 8,
-                          child: IconButton(
-                            icon: Icon(Icons.favorite_border),
-                            style: IconButton.styleFrom(
-                              backgroundColor:
-                                  Theme.of(context).colorScheme.surface,
-                            ),
-                            onPressed: () {},
-                          ),
-                        ),
-                      ],
+  child: Padding(
+    padding: EdgeInsets.symmetric(horizontal: 8),
+    child: GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2, // İki sütunlu grid
+        crossAxisSpacing: 5,
+        mainAxisSpacing: 5,
+        childAspectRatio: 1.60,
+      ),
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return InkWell(
+          onTap: () => context.push("/content"),
+          child: Card(
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AspectRatio(
+                  aspectRatio: 25 / 9,
+                  child: Container(
+                    color: Theme.of(context).colorScheme.secondaryContainer,
+                    child: Icon(
+                      Icons.code, // İkon tipi
+                      size: 48, // İkon boyutu
+                      color: Theme.of(context)
+                          .colorScheme
+                          .onSecondaryContainer, // Renk
                     ),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Ürün ${index + 1}',
-                            style: Theme.of(context).textTheme.titleMedium,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          SizedBox(height: 4),
-                          Text(
-                            '₺${(index + 1) * 100}',
-                            style: Theme.of(context).textTheme.titleLarge,
-                          ),
-                          SizedBox(height: 8),
-                          FilledButton.icon(
-                            onPressed: () {},
-                            icon: Icon(Icons.shopping_cart, size: 18),
-                            label: Text('Sepete Ekle'),
-                            style: FilledButton.styleFrom(
-                              minimumSize: Size(double.infinity, 36),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+                Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "C ${index + 1}",
+                        style: Theme.of(context).textTheme.titleMedium,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      Text(
+                        "C Eğitimine başla",
+                        style: Theme.of(context).textTheme.bodySmall,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
+        );
+      },
+    ),
+  ),
+),
+
         ],
       ),
       bottomNavigationBar: BottomMenu(),
@@ -150,7 +136,7 @@ class _PastlessonsScreenState extends State<PastlessonsScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Fiyat Aralığı',
+              'Zaman Aralığı',
               style: Theme.of(context).textTheme.titleMedium,
             ),
             SizedBox(height: 8),
@@ -159,8 +145,8 @@ class _PastlessonsScreenState extends State<PastlessonsScreen> {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      hintText: 'Min',
-                      prefixText: '₺',
+                      hintText: '10.10.2023',
+                      prefixText: '',
                       border: OutlineInputBorder(),
                     ),
                     keyboardType: TextInputType.number,
@@ -170,8 +156,8 @@ class _PastlessonsScreenState extends State<PastlessonsScreen> {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      hintText: 'Max',
-                      prefixText: '₺',
+                      hintText: '06.06.2025',
+                      prefixText: '',
                       border: OutlineInputBorder(),
                     ),
                     keyboardType: TextInputType.number,
@@ -189,22 +175,22 @@ class _PastlessonsScreenState extends State<PastlessonsScreen> {
               spacing: 8,
               children: [
                 FilterChip(
-                  label: Text('Elektronik'),
+                  label: Text('Backend'),
                   selected: true,
                   onSelected: (_) {},
                 ),
                 FilterChip(
-                  label: Text('Moda'),
+                  label: Text('Frontend'),
                   selected: false,
                   onSelected: (_) {},
                 ),
                 FilterChip(
-                  label: Text('Ev'),
+                  label: Text('Mobil'),
                   selected: false,
                   onSelected: (_) {},
                 ),
                 FilterChip(
-                  label: Text('Spor'),
+                  label: Text('Oyun'),
                   selected: false,
                   onSelected: (_) {},
                 ),
@@ -218,7 +204,7 @@ class _PastlessonsScreenState extends State<PastlessonsScreen> {
             SizedBox(height: 8),
             TextField(
               decoration: InputDecoration(
-                hintText: 'Ürün ara...',
+                hintText: 'Eğitim ara...',
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(),
               ),

@@ -1,163 +1,170 @@
+// ana ekran
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_app/widgets/bottom_menu.dart';
-import 'package:provider/provider.dart'; // Tema yönetimi için gerekli
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
-import '../core/themes.dart'; // Tema sağlayıcısı
+
+import '../core/themes.dart';
+import '../widgets/bottom_menu.dart';
+import '../widgets/suggested_action_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Blog içerikleri listesi
-    final List<Map<String, String>> blogList = [
-      {
-        "title": "Charles Babbage",
-        "description": "Charles Babbage, mekanik bilgisayarın babasıdır.",
-      },
-      {
-        "title": "Ada Lovelace",
-        "description": "Ada Lovelace, ilk bilgisayar programcısı olarak bilinir.",
-      },
-      {
-        "title": "Alan Turing",
-        "description": "Alan Turing, modern bilgisayar biliminin öncüsüdür.",
-      },
-      {
-        "title": "Grace Hopper",
-        "description": "Grace Hopper, ilk derleyiciyi geliştiren kişidir.",
-      },
-      {
-        "title": "Linus Torvalds",
-        "description": "Linus Torvalds, açık kaynaklı Linux çekirdeğini geliştirdi.",
-      },
-    ];
-
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      // AppBar
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        title: Text('< Flawless Code >', style: Theme.of(context).textTheme.headlineMedium),
         centerTitle: true,
-        title: Text(
-          '< Flawless Code >',
-          style: Theme.of(context).textTheme.headlineMedium,
-        ),
         actions: [
           IconButton(
-            icon: Icon(CupertinoIcons.moon_stars, color: Theme.of(context).colorScheme.onPrimary),
+            icon: Icon(CupertinoIcons.app),
             onPressed: () {
               context.read<ThemeProvider>().toggleTheme();
             },
           ),
         ],
       ),
-
-      // Ana içerik
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      drawer: Drawer(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Hoş Geldin Kutusu
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(16.0),
+            UserAccountsDrawerHeader(
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+                child: Icon(
+                  CupertinoIcons.person_circle,
+                  size: 50,
+                  color: Theme.of(context).colorScheme.onPrimaryContainer,
+                ),
+              ),
+              accountName: Text("Hoş Geldiniz"),
+              accountEmail: null,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.surface,
-                borderRadius: BorderRadius.circular(12.0),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Hoş Geldin ÖmerFarukYıldız 👋',
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).colorScheme.onSurface,
-                        ),
-                  ),
-                  const SizedBox(height: 8.0),
-                  Text(
-                    'Kodlama alanında yeni başarılar elde etmeye hazır mısınız?',
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
-                        ),
-                  ),
-                ],
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
-            const SizedBox(height: 16.0),
-
-            // Kayan Bloglar
-            Text(
-              'Bilgi Akışı',
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    color: Theme.of(context).colorScheme.onBackground,
-                    fontWeight: FontWeight.bold,
-                  ),
+            ListTile(
+              leading: Icon(CupertinoIcons.home),
+              title: Text('Ana Sayfa'),
+              onTap: () => Navigator.pop(context),
             ),
-            const SizedBox(height: 8.0),
-            SizedBox(
-              height: 150,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: blogList.length,
-                physics: const BouncingScrollPhysics(),
-                itemBuilder: (context, index) {
-                  final blog = blogList[index];
-                  return Container(
-                    width: 200,
-                    margin: const EdgeInsets.only(right: 16.0),
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.surface,
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            blog["title"] ?? "Başlık Yok",
-                            style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  color: Theme.of(context).colorScheme.onSurface,
+            ListTile(
+              leading: Icon(CupertinoIcons.device_laptop),
+              title: Text('Eğitimler'),
+              onTap: () => context.push("/search"),
+            ),
+            ListTile(
+              leading: Icon(CupertinoIcons.person),
+              title: Text('Profil'),
+              onTap: () => context.push("/profile"),
+            ),
+            ListTile(
+              leading: Icon(CupertinoIcons.settings),
+              title: Text('Ayarlar'),
+              onTap: () => context.push("/settings"),
+            ),
+            Spacer(),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text('Çıkış Yap'),
+              onTap: () => context.go("/login"),
+            ),
+          ],
+        ),
+      ),
+      
+      body: SafeArea(
+        child: Column(
+          children: [
+            Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(16),
+                          child: Row(
+                            children: [
+                              CircleAvatar(
+                                radius: 20,
+                                backgroundColor:
+                                    Theme.of(context).colorScheme.primary,
+                                child: Icon(Icons.home,
+                                    size: 32,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onPrimary),
+                              ),
+                              SizedBox(width: 16),
+                              Expanded(
+                                child: Text(
+                                  "Hoş Geldiniz Keyvan Arasteh 👋",
+                                  style: Theme.of(context).textTheme.titleLarge,
                                 ),
+                              ),
+                            ],
                           ),
-                          const SizedBox(height: 8),
-                          Text(
-                            blog["description"] ?? "Açıklama Yok",
-                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                  color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
-                                ),
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
-                  );
-                },
-              ),
-            ),
-            const SizedBox(height: 16.0),
-
-            // Diğer içerik
+                      Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(16),
+                          child: Row(
+                            children: [
+                              CircleAvatar(
+                                radius: 20,
+                                backgroundColor:
+                                    Theme.of(context).colorScheme.primary,
+                                child: Icon(Icons.code,
+                                    size: 32,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onPrimary),
+                              ),
+                              SizedBox(width: 10),
+                              Expanded(
+                                child: Text(
+                                  "Kodlama alanında yeni başarılar elde etmeye hazır mısınız?",
+                                  style: Theme.of(context).textTheme.titleLarge,
+                                  
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
             Expanded(
-              child: Center(
-                child: Text(
-                  'Flawless Code ile geleceği yazın!',
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: Theme.of(context).colorScheme.onBackground,
-                      ),
+              flex: 3,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.surfaceVariant,
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
+                ),
+                child: ListView(
+                  padding: EdgeInsets.all(24),
+                  children: [
+                    
+                    SizedBox(height: 16),
+                    SuggestedActionCard(
+                      icon: Icons.laptop,
+                      title: "Eğitimler",
+                      subtitle: "Bütün eğitimleri görüntüleyin",
+                      onTap: () => context.push("/lesson"),
+                    ),
+                    SizedBox(height: 16),
+                    SuggestedActionCard(
+                      icon: Icons.settings,
+                      title: "Ayarlar",
+                      subtitle: "Uygulama ayarlarını özelleştirin",
+                      onTap: () => context.push("/settings"),
+                    ),
+                  ],
                 ),
               ),
             ),
           ],
         ),
       ),
-
-      // Alt Menü
       bottomNavigationBar: BottomMenu(),
     );
   }

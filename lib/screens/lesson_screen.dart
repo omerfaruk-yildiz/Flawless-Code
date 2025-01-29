@@ -1,107 +1,132 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_app/screens/content_screen.dart';
-import 'package:flutter_app/widgets/bottom_menu.dart';
+import 'package:go_router/go_router.dart';
 
-// Yeni sayfa: C Dersi İçeriği
+
+import '../widgets/bottom_menu.dart';
 
 class LessonScreen extends StatelessWidget {
-  const LessonScreen({Key? key}) : super(key: key);
-
+  const LessonScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1C1C1C),
-      appBar: AppBar(
-        backgroundColor: Colors.grey[800],
-        centerTitle: true,
-        title: const Text(
-          '< Flawless Code >',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
+      // backgroundColor: colors["primary"],
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            floating: true,
+            snap: true,
+            title: TextField(
+              decoration: InputDecoration(
+                hintText: "Ara...",
+                filled: true,
+                fillColor: Theme.of(context).colorScheme.surfaceVariant,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(50),
+                  borderSide: BorderSide.none,
+                ),
+                prefixIcon: Icon(Icons.search),
+                suffixIcon: IconButton(
+                  icon: Icon(Icons.tune),
+                  onPressed: () {
+                    // Filtre dialog
+                  },
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Son Eğitimler",
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  SizedBox(height: 8),
+                  Wrap(
+                    spacing: 8,
+                    children: [
+                      ActionChip(
+                        label: Text("Flutter"),
+                        onPressed: () {},
+                        avatar: Icon(Icons.history, size: 16),
+                      ),
+                      ActionChip(
+                        label: Text("Dart"),
+                        onPressed: () {},
+                        avatar: Icon(Icons.history, size: 16),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.all(16),
+            sliver: SliverGrid(
+  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    crossAxisCount: 2,
+    mainAxisSpacing: 5,
+    crossAxisSpacing:5,
+    childAspectRatio: 1.60,
+  ),
+  delegate: SliverChildBuilderDelegate(
+    (context, index) {
+      return InkWell(
+         onTap: () => context.push("/content"),
+        child: Card(
+          clipBehavior: Clip.antiAlias,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AspectRatio(
+  aspectRatio: 25 / 9,
+  child: Container(
+    color: Theme.of(context).colorScheme.secondaryContainer,
+    child: Icon(
+      Icons.code, // İkon tipi
+      size: 48, // İkon boyutu
+      color: Theme.of(context).colorScheme.onSecondaryContainer, // Renk
+    ),
+  ),
+),
+
+              Padding(
+                padding: EdgeInsets.all(8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "C ${index + 1}",
+                      style: Theme.of(context).textTheme.titleMedium,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    Text(
+                      "C Eğitimine başla",
+                      style: Theme.of(context).textTheme.bodySmall,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: GridView.count(
-              crossAxisCount: 2,
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 20,
-              padding: const EdgeInsets.all(20),
-              children: [
-                _buildLessonCard(context, CupertinoIcons.book, 'C', Colors.blue),
-                _buildLessonCard(context, CupertinoIcons.book, 'C++', Colors.green),
-                _buildLessonCard(context, CupertinoIcons.book, 'C#', Colors.red),
-                _buildLessonCard(context, CupertinoIcons.book, 'SQL', Colors.purple),
-                _buildLessonCard(context, CupertinoIcons.book, 'PYTHON', Colors.orange),
-                _buildLessonCard(context, CupertinoIcons.book, 'JAVA', Colors.teal),
-              ],
-            ),
+      );
+    },
+    childCount: 10,
+  ),
+),
+
           ),
         ],
       ),
       bottomNavigationBar: BottomMenu(),
     );
   }
-
-  Widget _buildLessonCard(BuildContext context, IconData icon, String title, Color color) {
-    return InkWell(
-      onTap: () {
-        if (title == 'C') {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const ContentScreen()),
-          );
-        } else {
-          _showSnackBar(context, title);
-        }
-      },   
-      borderRadius: BorderRadius.circular(15),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: Colors.grey[800],
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 5,
-              offset: const Offset(0, 2),
-            ),
-          ],
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              icon,
-              size: 80,
-              color: color,
-            ),
-            const SizedBox(height: 10),
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  void _showSnackBar(BuildContext context, String lessonName) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('$lessonName dersine tıkladınız!'),
-        duration: const Duration(seconds: 2),
-      ),
-    );
-  }
 }
-
