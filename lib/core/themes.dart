@@ -3,7 +3,7 @@ import "package:google_fonts/google_fonts.dart";
 
 // theme_provider.dart
 class ThemeProvider with ChangeNotifier {
-  bool _isDark = false; // Varsayılan tema
+  bool _isDark = true; // Varsayılan tema
   bool get isDark => _isDark;
 
   void toggleTheme() {
@@ -16,7 +16,7 @@ class ThemeProvider with ChangeNotifier {
 const darkColors = {
   "primary": Color(0xFF1C1C1C),
   "onPrimary": Colors.white,
-  "secondary": Colors.grey,
+  "secondary": Color(0xFF000A12),
   "onSecondary": Color(0xFFB0BEC5),
   "background": Color(0xFF121212),
   "onBackground": Colors.white,
@@ -28,7 +28,7 @@ const darkColors = {
 
 
 const lightColors = {
-  "primary": Color(0xFFF5F5F5), // Hafif açık gri
+  "primary": Color(0xFFB0BEC5), // Hafif açık gri
   "onPrimary": Color(0xFF212121), // Koyu gri
   "secondary": Color(0xFFBBDEFB), // Açık mavi
   "onSecondary": Color(0xFF0D47A1), // Mavi ton

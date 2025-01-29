@@ -17,7 +17,7 @@ class ProfileScreen extends StatelessWidget {
         title: Text("Profil"),
         actions: [
           IconButton(
-            icon: Icon(CupertinoIcons.moon),
+            icon: Icon(Icons.brightness_6),
             onPressed: () {
               context.read<ThemeProvider>().toggleTheme();
             },
@@ -86,19 +86,19 @@ class ProfileScreen extends StatelessWidget {
                 children: [
                   CircleAvatar(
                 radius: 30,
-                backgroundImage: AssetImage('assets/images/150136006.jpg'),
+                backgroundImage: AssetImage('assets/images/48393183.jpg'),
               ),
               const SizedBox(height: 1),
 
                   SizedBox(height: 1),
                   ListTile(
                     leading: Icon(Icons.person),
-                    title: Text("Enes ÖZGENÇ"),
+                    title: Text("Batuhan Demir"),
                     subtitle: Text("Ad Soyad"),
                   ),
                   ListTile(
                     leading: Icon(Icons.email),
-                    title: Text("omerfaruk_yildiz@outlook.com"),
+                    title: Text("batuhan-demir05@outlook.com"),
                     subtitle: Text("E-posta"),
                   ),
                 ],

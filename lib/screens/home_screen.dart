@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(CupertinoIcons.app),
+            icon: Icon(Icons.brightness_6),
             onPressed: () {
               context.read<ThemeProvider>().toggleTheme();
             },
@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
             ListTile(
               leading: Icon(CupertinoIcons.device_laptop),
               title: Text('Eğitimler'),
-              onTap: () => context.push("/search"),
+              onTap: () => context.push("/lesson"),
             ),
             ListTile(
               leading: Icon(CupertinoIcons.person),
@@ -81,87 +81,137 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             Card(
-                        child: Padding(
-                          padding: EdgeInsets.all(16),
-                          child: Row(
-                            children: [
-                              CircleAvatar(
-                                radius: 20,
-                                backgroundColor:
-                                    Theme.of(context).colorScheme.primary,
-                                child: Icon(Icons.home,
-                                    size: 32,
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .onPrimary),
-                              ),
-                              SizedBox(width: 16),
-                              Expanded(
-                                child: Text(
-                                  "Hoş Geldiniz Keyvan Arasteh 👋",
-                                  style: Theme.of(context).textTheme.titleLarge,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+  color: Theme.of(context).colorScheme.primary, // Card arka plan rengi
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(16), // Köşe yuvarlaklığı
+  ),
+  elevation: 4, // Gölgelendirme
+  child: Padding(
+    padding: EdgeInsets.all(16),
+    child: Row(
+      children: [
+        CircleAvatar(
+          radius: 20,
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          child: Icon(
+            Icons.home,
+            size: 32,
+            color: Theme.of(context).colorScheme.onPrimary,
+          ),
+        ),
+        SizedBox(width: 16),
+        Expanded(
+          child: Text(
+            "Hoş Geldiniz Keyvan Arasteh 👋",
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurface, // Yazı rengi
+                ),
+          ),
+        ),
+      ],
+    ),
+  ),
+),
+
                       Card(
-                        child: Padding(
-                          padding: EdgeInsets.all(16),
-                          child: Row(
-                            children: [
-                              CircleAvatar(
-                                radius: 20,
-                                backgroundColor:
-                                    Theme.of(context).colorScheme.primary,
-                                child: Icon(Icons.code,
-                                    size: 32,
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .onPrimary),
-                              ),
-                              SizedBox(width: 10),
-                              Expanded(
-                                child: Text(
-                                  "Kodlama alanında yeni başarılar elde etmeye hazır mısınız?",
-                                  style: Theme.of(context).textTheme.titleLarge,
-                                  
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-            Expanded(
-              flex: 3,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surfaceVariant,
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
+  color: Theme.of(context).colorScheme.primary, // Arka plan rengi
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(16), // Köşe yuvarlaklığı
+  ),
+  elevation: 4, // Kart gölgelenmesi
+  child: Padding(
+    padding: EdgeInsets.all(16),
+    child: Row(
+      children: [
+        CircleAvatar(
+          radius: 20,
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          child: Icon(
+            Icons.code,
+            size: 32,
+            color: Theme.of(context).colorScheme.onPrimary,
+          ),
+        ),
+        SizedBox(width: 10),
+        Expanded(
+          child: Text(
+            "Kodlama alanında yeni başarılar elde etmeye hazır mısınız?",
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  fontSize: 14, // Yazı boyutunu küçültmek için
+                  color: Theme.of(context).colorScheme.onSurface, // Yazı rengi
                 ),
-                child: ListView(
-                  padding: EdgeInsets.all(24),
-                  children: [
-                    
-                    SizedBox(height: 16),
-                    SuggestedActionCard(
-                      icon: Icons.laptop,
-                      title: "Eğitimler",
-                      subtitle: "Bütün eğitimleri görüntüleyin",
-                      onTap: () => context.push("/lesson"),
-                    ),
-                    SizedBox(height: 16),
-                    SuggestedActionCard(
-                      icon: Icons.settings,
-                      title: "Ayarlar",
-                      subtitle: "Uygulama ayarlarını özelleştirin",
-                      onTap: () => context.push("/settings"),
-                    ),
-                  ],
-                ),
-              ),
+          ),
+        ),
+      ],
+    ),
+  ),
+),
+
+           Expanded(
+  flex: 3,
+  child: Container(
+    decoration: BoxDecoration(
+      color: Theme.of(context).colorScheme.surfaceVariant,
+      borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
+    ),
+    child: ListView(
+      padding: EdgeInsets.all(24),
+      children: [
+        SizedBox(height: 16),
+        Card(
+          color:Theme.of(context).colorScheme.primary, // İlk kutucuk için farklı renk
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: ListTile(
+            leading: CircleAvatar(
+              radius: 20,
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              child: Icon(Icons.laptop,
+                  size: 24,
+                  color: Theme.of(context).colorScheme.onPrimary),
             ),
+            title: Text(
+              "Eğitimler",
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            subtitle: Text(
+              "Bütün eğitimleri görüntüleyin",
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+            onTap: () => context.push("/lesson"),
+          ),
+        ),
+        SizedBox(height: 16),
+        Card(
+          color:Theme.of(context).colorScheme.primary, // İkinci kutucuk için farklı renk
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: ListTile(
+            leading: CircleAvatar(
+              radius: 20,
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              child: Icon(Icons.settings,
+                  size: 24,
+                  color: Theme.of(context).colorScheme.onPrimary),
+            ),
+            title: Text(
+              "Ayarlar",
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            subtitle: Text(
+              "Uygulama ayarlarını özelleştirin",
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+            onTap: () => context.push("/settings"),
+          ),
+        ),
+      ],
+    ),
+  ),
+),
+
           ],
         ),
       ),

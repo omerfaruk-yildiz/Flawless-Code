@@ -65,25 +65,25 @@ class AssistantScreen extends StatelessWidget {
                         physics: NeverScrollableScrollPhysics(),
                         crossAxisCount: 2,
                         mainAxisSpacing: 16,
-                        crossAxisSpacing: 16,
-                        childAspectRatio: 1.5,
+                        crossAxisSpacing: 20,
+                        childAspectRatio: 2,
                         children: [
                           ActionCard(
                             icon: Icons.person,
                             title: "Profil",
-                            color: Theme.of(context).colorScheme.primary,
+                            color: Theme.of(context).colorScheme.onPrimary,
                             onTap: () => context.push("/profile"),
                           ),
                           ActionCard(
                             icon: Icons.login,
                             title: "Giriş Yap",
-                            color: Theme.of(context).colorScheme.secondary,
+                            color: Theme.of(context).colorScheme.onPrimary,
                             onTap: () => context.push("/login"),
                           ),
                           ActionCard(
                             icon: Icons.app_registration,
                             title: "Kayıt Ol",
-                            color: Theme.of(context).colorScheme.tertiary,
+                            color: Theme.of(context).colorScheme.onPrimary,
                             onTap: () => context.go("/register"),
                           ),
                           ActionCard(
