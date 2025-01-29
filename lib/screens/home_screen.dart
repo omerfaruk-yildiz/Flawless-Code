@@ -1,8 +1,10 @@
 // ana ekran
 
+import 'package:dotlottie_loader/dotlottie_loader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 
@@ -211,6 +213,26 @@ class HomeScreen extends StatelessWidget {
     ),
   ),
 ),
+            Expanded(
+              flex: 2,
+              child: Container(
+                padding: EdgeInsets.all(24),
+                child: AspectRatio(
+                  aspectRatio: 1,
+                  child: DotLottieLoader.fromAsset(
+                    "assets/motions/q2.lottie",
+                    frameBuilder: (context, dotlottie) {
+                      if (dotlottie != null) {
+                        return Lottie.memory(
+                          dotlottie.animations.values.single,
+                        );
+                      }
+                      return const SizedBox();
+                    },
+                  ),
+                ),
+              ),
+            ),
 
           ],
         ),

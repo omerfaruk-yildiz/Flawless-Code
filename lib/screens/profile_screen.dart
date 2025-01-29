@@ -74,7 +74,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   ListTile(
                     leading: Icon(Icons.email),
-                    title: Text("omerfaruk_yildiz@outlook.com"),
+                    title: Text("seneenes14@gmail.com"),
                     subtitle: Text("E-posta"),
                   ),
                 ],

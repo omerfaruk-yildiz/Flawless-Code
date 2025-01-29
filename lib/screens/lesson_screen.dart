@@ -49,12 +49,12 @@ class LessonScreen extends StatelessWidget {
                     spacing: 8,
                     children: [
                       ActionChip(
-                        label: Text("Flutter"),
+                        label: Text("C 4"),
                         onPressed: () {},
                         avatar: Icon(Icons.history, size: 16),
                       ),
                       ActionChip(
-                        label: Text("Dart"),
+                        label: Text("C 2"),
                         onPressed: () {},
                         avatar: Icon(Icons.history, size: 16),
                       ),
