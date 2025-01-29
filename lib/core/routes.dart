@@ -1,4 +1,3 @@
-// uygulamada sayfalari ve navigasyon islemlerini burada tanimlicaz
 import 'package:flutter_app/screens/login_screen.dart';
 import 'package:flutter_app/screens/pastlessons_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -11,9 +10,8 @@ import '../screens/register_screen.dart';
 import '../screens/lesson_screen.dart';
 import '../screens/settings_screen.dart';
 
-// Router yapılandırması
 final router = GoRouter(
-  initialLocation: '/', // Başlangıç rotası
+  initialLocation: '/', 
   routes: [
     GoRoute(
       path: '/',
