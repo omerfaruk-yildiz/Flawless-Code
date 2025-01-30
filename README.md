@@ -18,7 +18,7 @@
 ### **Takım Üyeleri:**
 
 - [omerfaruk-yildiz](https://github.com/omerfaruk-yildiz)
-- [BatuRoyale05](https://github.com/BatuRoyale05)
+- [BatuhanDemir05](https://github.com/BatuhanDemir05)
 - [enes986](https://github.com/enes986)
 
 ## Kullanılan Teknolojiler
@@ -77,13 +77,14 @@ lib/
 └── helpers/       # Yardımcı fonksiyonlar
 ```
 
-## Ekran Görüntülerii
-
-[Ekran görüntüleri burada paylaşılacak]
-
 ## Demo Video
 
-[Demo video bağlantısı burada paylaşılacak]
+[]
+
+## Ekran Görüntülerii
+
+[<video controls src="Demo Videosu (3).mp4" title="Title"></video>]
+
 
 ## Görev Dağılımı
 
