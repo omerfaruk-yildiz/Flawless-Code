@@ -129,7 +129,7 @@ lib/
 
 ## Ekran Görüntüleri
 
-[![alt text][def] ![alt text](<Ekran görüntüsü 2024-12-07 221358.png>) ![alt text](<Ekran görüntüsü 2024-12-07 221423.png>) ![alt text](<Ekran görüntüsü 2024-12-07 221507.png>) ![alt text](<Ekran görüntüsü 2024-12-07 221522.png>) ![alt text](<Ekran görüntüsü 2024-12-07 221538.png>)]
+[]
 
   
 
