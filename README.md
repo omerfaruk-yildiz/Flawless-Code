@@ -79,7 +79,7 @@ lib/
 
 ## Demo Video
 
-[]
+[https://github.com/user-attachments/assets/b7029a5d-1068-48c9-b1af-3d172410771e]
 
 ## Ekran Görüntülerii
 
