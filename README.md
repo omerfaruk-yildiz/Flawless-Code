@@ -83,7 +83,7 @@ lib/
 
 ## Ekran Görüntülerii
 
-[<video controls src="Demo Videosu (3).mp4" title="Title"></video>]
+[![Image](https://github.com/user-attachments/assets/4564f9a5-7f62-4b7c-b292-610df9380a9e)]
 
 
 ## Görev Dağılımı
