@@ -31,6 +31,7 @@
 - **Kullanıcı Hesap Yönetimi:** Kullanıcıların kayıt olmasını, giriş yapmasını ve kimlik doğrulama işlemlerini güvenli bir şekilde gerçekleştirmesini sağlar.
 - **Eğitici Modüller:** Kullanıcılara kod eğitimleri sunarak temel ve ileri seviye konular hakkında bilgi verir.
 - **Test ve Öneriler:** Kullanıcıya interaktif testler sunarak öğrenme sürecini hızlandırır.
+  
 ## Kurulum Adımları
 
 ### **Gereksinimler**
@@ -79,11 +80,20 @@ lib/
 
 ## Demo Video
 
-[https://github.com/user-attachments/assets/b7029a5d-1068-48c9-b1af-3d172410771e]
+https://github.com/user-attachments/assets/b267b2fe-3ae7-4c5f-a92e-fa4eb848c75f
 
-## Ekran Görüntülerii
+## Ekran Görüntüleri
 
-[![Image](https://github.com/user-attachments/assets/4564f9a5-7f62-4b7c-b292-610df9380a9e)]
+![Image](https://github.com/user-attachments/assets/2616952e-3fa0-44d6-913c-98f0057b4ae1)
+![Image](https://github.com/user-attachments/assets/7759544f-b947-4361-a864-fa8e589ebcc3)
+![Image](https://github.com/user-attachments/assets/b37dcb14-1c96-41e8-bf73-c62f5891f868)
+![Image](https://github.com/user-attachments/assets/fd5ef0c5-e826-4558-8e37-0d04f5e5e1e8)
+![Image](https://github.com/user-attachments/assets/7c619d38-c0c8-4eb9-af64-162f9a6e48c9)
+![Image](https://github.com/user-attachments/assets/e80aa3a6-0990-4a08-a345-596cffa67c3f)
+![Image](https://github.com/user-attachments/assets/cdf4b954-36bd-4349-b80a-fdd3b8890869)
+![Image](https://github.com/user-attachments/assets/313c794e-f459-4393-aa3b-cc16e12d5770)
+![Image](https://github.com/user-attachments/assets/ba464d9b-39ae-4d9b-8411-bae887d73001)
+![Image](https://github.com/user-attachments/assets/ee23df85-6128-493e-a669-e1337b1b5e60)
 
 
 ## Görev Dağılımı
