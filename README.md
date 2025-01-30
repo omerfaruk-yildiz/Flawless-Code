@@ -27,9 +27,9 @@
 
 ## Özellikler
 
-- [Hata Analizi: Kullanıcıların yüklediği veya yazdığı kodları analiz ederek hataları tespit eder.]
+- [Kullanıcı Hesap Yönetimi: Kullanıcıların kayıt olmasını, giriş yapmasını ve kimlik doğrulama işlemlerini güvenli bir şekilde gerçekleştirmesini sağlar.]
 
-- [Eğitici Modüller: Hataların nedenlerini ve çözüm yollarını açıklayan modüller içerir.]
+- [Eğitici Modüller: Kullanıcılara kod eğitimleri sunarak temel ve ileri seviye konular hakkında bilgi verir.]
 
 - [Test ve Öneriler: Kullanıcıya interaktif testler sunarak öğrenme sürecini hızlandırır.]
 
